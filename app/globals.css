@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+/* ══════════════════════════════════════════════════
+   Усадьба OS — Design System
+   Palette: Поморцы brand
+══════════════════════════════════════════════════ */
+
+@theme {
+  /* Поморцы brand colors */
+  --color-pomor-green:      #1B6255;
+  --color-pomor-green-dk:   #0F3D31;
+  --color-pomor-green-xdk:  #091A14;
+  --color-pomor-green-lt:   #2A8570;
+  --color-pomor-green-soft: #E8F2EF;
+  --color-pomor-red:        #B5171E;
+  --color-pomor-red-dk:     #850F15;
+  --color-pomor-parch:      #F0E8D5;
+  --color-pomor-parch-dk:   #D9CCAF;
+  --color-pomor-parch-xdk:  #C4B090;
+  --color-pomor-black:      #14100C;
+  --color-pomor-gold:       #C4922A;
+  --color-pomor-gold-lt:    #E8C06A;
+
+  /* Semantic tokens — light mode */
+  --color-bg:           var(--color-pomor-parch);
+  --color-bg-subtle:    #FAF6EE;
+  --color-surface:      #FFFFFF;
+  --color-surface-2:    #F7F2E8;
+  --color-border:       var(--color-pomor-parch-dk);
+  --color-border-subtle: #EDE5D0;
+  --color-text:         var(--color-pomor-black);
+  --color-text-muted:   #6B6355;
+  --color-accent:       var(--color-pomor-green);
+  --color-accent-hover: var(--color-pomor-green-dk);
+
+  /* Fonts */
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+
+  /* Radius */
+  --radius-sm:  4px;
+  --radius-md:  8px;
+  --radius-lg:  12px;
+  --radius-xl:  16px;
+}
+
+/* ── Dark mode ────────────────────────────────── */
+.dark {
+  --color-bg:           var(--color-pomor-green-xdk);
+  --color-bg-subtle:    #0D2218;
+  --color-surface:      #0F2E1E;
+  --color-surface-2:    #143525;
+  --color-border:       rgba(27,98,85,0.35);
+  --color-border-subtle: rgba(27,98,85,0.2);
+  --color-text:         var(--color-pomor-parch);
+  --color-text-muted:   rgba(240,232,213,0.5);
+  --color-accent:       var(--color-pomor-green-lt);
+  --color-accent-hover: #34A083;
+}
+
+/* ── Base ─────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { font-size: 16px; }
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+/* ── Scrollbar ────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--color-text-muted); }
+
+/* ── Glass card ──────────────────────────────── */
+.glass-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 1px 3px rgba(20,16,12,0.06), 0 4px 16px rgba(20,16,12,0.04);
+}
+
+.dark .glass-card {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.2);
+}
+
+/* ── Sidebar link ────────────────────────────── */
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(240,232,213,0.6);
+  transition: all 0.15s ease;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+}
+.nav-link:hover {
+  color: white;
+  background: rgba(255,255,255,0.08);
+}
+.nav-link.active {
+  color: white;
+  background: rgba(255,255,255,0.14);
+}
+
+/* ── Status badges ───────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 10px;
+  border-radius: 99px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.badge-draft     { background: #e8e8e8; color: #666; }
+.badge-confirmed { background: var(--color-pomor-green-soft); color: var(--color-pomor-green-dk); }
+.badge-deposit   { background: #FEF3C7; color: #92400E; }
+.badge-completed { background: #EDE9FE; color: #5B21B6; }
+.badge-cancelled { background: #FEE2E2; color: var(--color-pomor-red-dk); }
+.badge-no_show   { background: #F3F4F6; color: #4B5563; }
+
+/* ── KPI card ────────────────────────────────── */
+.kpi-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+}
