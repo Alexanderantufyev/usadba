@@ -98,6 +98,32 @@ export interface Database {
         Update: Partial<Database['public']['Tables']['payments']['Insert']>
         Relationships: []
       }
+      volunteer_tasks: {
+        Row: {
+          id: string; title: string; description: string; task_date: string
+          location: string; tools_info: string; max_volunteers: number
+          is_active: boolean; created_at: string; updated_at: string
+        }
+        Insert: {
+          id?: string; title: string; description?: string; task_date: string
+          location?: string; tools_info?: string; max_volunteers?: number
+          is_active?: boolean
+        }
+        Update: Partial<Database['public']['Tables']['volunteer_tasks']['Insert']>
+        Relationships: []
+      }
+      volunteer_registrations: {
+        Row: {
+          id: string; task_id: string; name: string; phone: string
+          email: string; arrival_time: string; created_at: string
+        }
+        Insert: {
+          id?: string; task_id: string; name: string; phone: string
+          email: string; arrival_time: string
+        }
+        Update: Partial<Database['public']['Tables']['volunteer_registrations']['Insert']>
+        Relationships: []
+      }
     }
     Views: Record<string, never>
     Functions: Record<string, never>

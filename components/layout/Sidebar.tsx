@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation'
 import {
   LayoutDashboard, CalendarDays, BookOpen, MapPin,
   Users, UserCheck, ReceiptText, TrendingUp, Settings,
-  ChevronRight,
+  ChevronRight, Shovel,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -24,6 +24,7 @@ const NAV = [
       { href: '/locations',   icon: MapPin,     label: 'Пространства' },
       { href: '/clients',     icon: Users,       label: 'Клиенты' },
       { href: '/staff',       icon: UserCheck,   label: 'Персонал' },
+      { href: '/volunteers',  icon: Shovel,      label: 'Волонтёры' },
     ],
   },
   {
